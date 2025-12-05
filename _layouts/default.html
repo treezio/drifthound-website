@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include head.html %}
+<body class="font-sans antialiased text-gray-900 bg-gray-50">
+  <!-- Star Banner -->
+  <div class="star-banner" id="starBanner">
+    <div class="container">
+      <div class="star-banner-content">
+        <span class="star-banner-text">
+          If you like DriftHound, <a href="{{ site.github_repo }}/stargazers" class="star-banner-link" target="_blank" rel="noopener">give us a star on GitHub</a>!
+        </span>
+        <button class="star-banner-close" aria-label="Close banner" onclick="closeBanner()">
+          <svg viewBox="0 0 16 16" width="16" height="16">
+            <path fill="currentColor" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  {% include header.html %}
+
+  <main>
+    {{ content }}
+  </main>
+
+  {% include footer.html %}
+
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>

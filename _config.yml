@@ -1,0 +1,48 @@
+# Site settings
+title: "DriftHound"
+tagline: "A Watchdog for Your Infrastructure State"
+description: "Monitor infrastructure drift for Terraform, OpenTofu, and Terragrunt. Real-time drift detection with GitHub Actions integration and Kubernetes deployment."
+version: "0.2.6"
+baseurl: ""
+url: "https://drifthound.io"
+
+# Build settings
+markdown: kramdown
+theme: null
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Collections (future-ready for docs and changelog)
+collections:
+  docs:
+    output: true
+    permalink: /docs/:path/
+  changelog:
+    output: true
+    permalink: /changelog/:path/
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor/
+  - .git/
+  - .gitignore
+
+# SEO
+logo: /assets/images/drifthound_logo.png
+twitter:
+  card: summary_large_image
+social:
+  name: DriftHound
+  links:
+    - https://github.com/treezio/DriftHound
+
+# Links
+github_repo: "https://github.com/treezio/DriftHound"
+github_docs: "https://github.com/treezio/DriftHound?tab=readme-ov-file#documentation"
+github_action: "https://github.com/treezio/drifthound-action"
+helm_chart: "https://github.com/treezio/helm-chart-drifthound"
+docker_image: "ghcr.io/treezio/drifthound"

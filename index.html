@@ -1,0 +1,210 @@
+---
+layout: default
+title: DriftHound - A Watchdog for Your Infrastructure State
+---
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <img src="{{ '/assets/images/drifthound_logo.png' | relative_url }}" alt="DriftHound Logo" class="hero-logo">
+      <h1 class="hero-title">DriftHound</h1>
+      <p class="hero-tagline">{{ site.tagline }}</p>
+      <p class="hero-description">
+        Monitor infrastructure drift for Terraform, OpenTofu, and Terragrunt.
+        Real-time drift detection with automated alerting.
+      </p>
+      <div class="hero-cta">
+        <a href="{{ site.github_repo }}" class="btn-primary btn-large" target="_blank" rel="noopener">
+          Get Started on GitHub
+        </a>
+        <a href="#features" class="btn-secondary btn-large">
+          Learn More
+        </a>
+      </div>
+      <div class="hero-meta">
+        <span class="version-badge">v{{ site.version }}</span>
+        <span class="badge">Open Source</span>
+        <span class="badge">AGPL-3.0 License</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What is DriftHound Section -->
+<section class="section-what" id="about">
+  <div class="container">
+    <div class="section-header">
+      <h2>What is DriftHound?</h2>
+      <p class="section-subtitle">
+        A Rails web application that receives Terraform drift reports via API and provides
+        visibility into infrastructure drift across your projects.
+      </p>
+    </div>
+
+    <div class="content-grid">
+      <div class="content-text">
+        <h3>Infrastructure Drift Detection Made Simple</h3>
+        <p>
+          DriftHound monitors your Terraform, OpenTofu, and Terragrunt infrastructure for drift—
+          detecting when your actual infrastructure state diverges from your declared configuration.
+        </p>
+        <ul class="feature-list">
+          <li>Track drift across multiple projects and environments</li>
+          <li>Store historical drift check data</li>
+          <li>Get instant Slack notifications on drift detection</li>
+          <li>View detailed change summaries with add/modify/destroy counts</li>
+        </ul>
+      </div>
+
+      <div class="content-image">
+        <img src="{{ '/assets/images/dashboard-screenshot.png' | relative_url }}"
+             alt="DriftHound Dashboard"
+             class="screenshot">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Key Features Section -->
+<section class="section-features" id="features">
+  <div class="container">
+    <div class="section-header">
+      <h2>Key Features</h2>
+      <p class="section-subtitle">Everything you need to monitor infrastructure drift</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Web Dashboard</h3>
+        <p>View all projects and their drift status at a glance. Track history and analyze trends over time.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔔</div>
+        <h3>Slack Notifications</h3>
+        <p>Receive instant alerts when drift is detected. Configure per-project or environment-specific notifications.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔄</div>
+        <h3>GitHub Actions</h3>
+        <p>Seamless CI/CD integration with our official GitHub Action. Automate drift checks on every push.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🚀</div>
+        <h3>Easy Deployment</h3>
+        <p>Deploy to Kubernetes with our Helm chart or use Docker images. Production-ready in minutes.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📡</div>
+        <h3>API-First</h3>
+        <p>RESTful API for submitting drift reports. Authenticate with bearer tokens, integrate with any tool.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📈</div>
+        <h3>Historical Data</h3>
+        <p>Store and track drift check history per project. Compare checks and identify patterns.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Start Section -->
+<section class="section-quickstart" id="quickstart">
+  <div class="container">
+    <div class="section-header">
+      <h2>Quick Start</h2>
+      <p class="section-subtitle">Get up and running in minutes</p>
+    </div>
+
+    <div class="quickstart-tabs">
+      <div class="tab-buttons">
+        <button class="tab-btn active" data-tab="github-action">GitHub Action</button>
+        <button class="tab-btn" data-tab="helm">Helm Chart</button>
+        <button class="tab-btn" data-tab="docker">Docker</button>
+        <button class="tab-btn" data-tab="cli">CLI</button>
+      </div>
+
+      <div class="tab-content active" data-tab-content="github-action">
+        <h3>GitHub Actions Integration</h3>
+        <p>Add DriftHound to your workflow:</p>
+        <pre><code>- name: Check Terraform Drift
+  uses: treezio/drifthound-action@v1
+  with:
+    api-url: 'https://drifthound.example.com'
+    api-token: ${{ secrets.DRIFTHOUND_TOKEN }}
+    project: 'my-project'
+    environment: 'production'
+    terraform-directory: './terraform'</code></pre>
+        <a href="{{ site.github_action }}" class="link-arrow" target="_blank" rel="noopener">
+          View GitHub Action Documentation →
+        </a>
+      </div>
+
+      <div class="tab-content" data-tab-content="helm">
+        <h3>Deploy with Helm</h3>
+        <p>Install DriftHound to your Kubernetes cluster:</p>
+        <pre><code>helm repo add drifthound https://treezio.github.io/helm-chart-drifthound
+helm repo update
+helm install drifthound drifthound/drifthound \
+  --set postgresql.enabled=true \
+  --set ingress.enabled=true</code></pre>
+        <a href="{{ site.helm_chart }}" class="link-arrow" target="_blank" rel="noopener">
+          View Helm Chart Documentation →
+        </a>
+      </div>
+
+      <div class="tab-content" data-tab-content="docker">
+        <h3>Run with Docker</h3>
+        <p>Start DriftHound using Docker Compose:</p>
+        <pre><code>docker pull {{ site.docker_image }}:latest
+
+# Run with Docker Compose
+docker-compose up -d</code></pre>
+        <a href="{{ site.github_repo }}#docker-setup" class="link-arrow" target="_blank" rel="noopener">
+          View Docker Documentation →
+        </a>
+      </div>
+
+      <div class="tab-content" data-tab-content="cli">
+        <h3>CLI Usage</h3>
+        <p>Install and use the DriftHound CLI:</p>
+        <pre><code>curl -L https://raw.githubusercontent.com/treezio/DriftHound/main/bin/drifthound-cli \
+  -o /usr/local/bin/drifthound && chmod +x /usr/local/bin/drifthound
+
+drifthound --tool=terraform \
+  --project=my-project \
+  --environment=production \
+  --token=YOUR_API_TOKEN \
+  --api-url=http://localhost:3000 \
+  --dir=./terraform</code></pre>
+        <a href="{{ site.github_repo }}/blob/main/docs/cli-usage.md" class="link-arrow" target="_blank" rel="noopener">
+          View CLI Documentation →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section-cta">
+  <div class="container">
+    <div class="cta-content">
+      <h2>Ready to Monitor Your Infrastructure?</h2>
+      <p>Start tracking infrastructure drift today with DriftHound</p>
+      <div class="cta-buttons">
+        <a href="{{ site.github_repo }}" class="btn-primary btn-large" target="_blank" rel="noopener">
+          Get Started on GitHub
+        </a>
+        <a href="{{ site.github_repo }}/blob/main/README.md" class="btn-secondary btn-large" target="_blank" rel="noopener">
+          Read Documentation
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
