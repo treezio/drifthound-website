@@ -133,14 +133,11 @@ title: DriftHound - A Watchdog for Your Infrastructure State
       <div class="tab-content active" data-tab-content="github-action">
         <h3>GitHub Actions Integration</h3>
         <p>Add DriftHound to your workflow:</p>
-        <pre><code>- name: Check Terraform Drift
+        <pre><code>- name: Run drift detection
   uses: treezio/drifthound-action@v1
   with:
-    api-url: 'https://drifthound.example.com'
-    api-token: ${{ secrets.DRIFTHOUND_TOKEN }}
-    project: 'my-project'
-    environment: 'production'
-    terraform-directory: './terraform'</code></pre>
+    drifthound-url: $&#123;&#123; secrets.DRIFTHOUND_URL &#125;&#125;
+    drifthound-token: $&#123;&#123; secrets.DRIFTHOUND_TOKEN &#125;&#125;</code></pre>
         <a href="{{ site.github_action }}" class="link-arrow" target="_blank" rel="noopener">
           View GitHub Action Documentation →
         </a>
@@ -180,8 +177,8 @@ docker-compose up -d</code></pre>
 drifthound --tool=terraform \
   --project=my-project \
   --environment=production \
-  --token=YOUR_API_TOKEN \
-  --api-url=http://localhost:3000 \
+  --token=$&#123;&#123; DRIFTHOUND_API_TOKEN &#125;&#125; \
+  --api-url=$&#123;&#123; DRIFTHOUND_HOST &#125;&#125; \
   --dir=./terraform</code></pre>
         <a href="{{ site.github_repo }}/blob/main/docs/cli-usage.md" class="link-arrow" target="_blank" rel="noopener">
           View CLI Documentation →
