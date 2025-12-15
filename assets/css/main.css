@@ -95,13 +95,15 @@ a:hover {
 }
 
 .site-header nav {
-  padding: var(--spacing-sm) 0;
+  padding: var(--spacing-sm) var(--spacing-md);
+  max-width: none;
 }
 
 .nav-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 }
 
 .logo {
