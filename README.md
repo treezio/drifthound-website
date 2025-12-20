@@ -61,9 +61,9 @@ The site is automatically deployed to GitHub Pages via GitHub Actions on every p
 
 ## Related Projects
 
-- **DriftHound** - Main application: [github.com/treezio/DriftHound](https://github.com/treezio/DriftHound)
-- **DriftHound Action** - GitHub Action: [github.com/treezio/drifthound-action](https://github.com/treezio/drifthound-action)
-- **Helm Chart** - Kubernetes deployment: [github.com/treezio/helm-chart-drifthound](https://github.com/treezio/helm-chart-drifthound)
+- **DriftHound** - Main application: [github.com/drifthoundhq/DriftHound](https://github.com/drifthoundhq/drifthound)
+- **DriftHound Action** - GitHub Action: [github.com/drifthoundhq/drifthound-action](https://github.com/drifthoundhq/drifthound-action)
+- **Helm Chart** - Kubernetes deployment: [github.com/drifthoundhq/helm-chart-drifthound](https://github.com/drifthoundhq/helm-chart)
 
 ## License
 
