@@ -50,6 +50,7 @@ github_docs: "https://github.com/drifthoundhq/drifthound?tab=readme-ov-file#docu
 github_action: "https://github.com/drifthoundhq/drifthound-action"
 helm_chart: "https://github.com/drifthoundhq/helm-chart"
 docker_image: "ghcr.io/drifthoundhq/drifthound"
+demo_url: "https://demo.drifthound.io"
 
 # Internal Documentation Links
 docs_url: "/docs/"

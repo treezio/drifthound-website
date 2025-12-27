@@ -8,7 +8,7 @@ sections:
 
   - title: "DriftHound Core"
     id: "core"
-    icon: "🐕"
+    icon: "🐶"
     pages:
       - title: "Configuration"
         url: "/docs/core/configuration/"

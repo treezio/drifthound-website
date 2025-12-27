@@ -13,6 +13,25 @@ echo "Website root: $WEBSITE_ROOT"
 echo "DriftHound source: $DRIFTHOUND_SOURCE"
 echo "Action source: $ACTION_SOURCE"
 
+# Extract version from DriftHound source
+if [ -f "$DRIFTHOUND_SOURCE/lib/drifthound/version.rb" ]; then
+  echo "Extracting version from DriftHound..."
+  VERSION=$(grep 'Version = ' "$DRIFTHOUND_SOURCE/lib/drifthound/version.rb" | sed 's/.*Version = "\(.*\)"/\1/')
+  echo "Found version: $VERSION"
+
+  # Update _config.yml version
+  if [ -n "$VERSION" ]; then
+    echo "Updating _config.yml with version $VERSION..."
+    sed -i.bak "s/^version: .*/version: \"$VERSION\"/" "$WEBSITE_ROOT/_config.yml"
+    rm "$WEBSITE_ROOT/_config.yml.bak"
+    echo "Version updated successfully!"
+  else
+    echo "WARNING: Could not extract version from version.rb"
+  fi
+else
+  echo "WARNING: version.rb not found at $DRIFTHOUND_SOURCE/lib/drifthound/version.rb"
+fi
+
 # Clean existing docs (preserve getting-started.md which is manually maintained)
 if [ -f "$WEBSITE_ROOT/_docs/getting-started.md" ]; then
   mv "$WEBSITE_ROOT/_docs/getting-started.md" "$WEBSITE_ROOT/_docs_getting_started_backup.md"
