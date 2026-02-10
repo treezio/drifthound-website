@@ -2,7 +2,7 @@
 title: "DriftHound"
 tagline: "A Watchdog for Your Infrastructure State"
 description: "Monitor infrastructure drift for Terraform, OpenTofu, and Terragrunt. Real-time drift detection with GitHub Actions integration and Kubernetes deployment."
-version: "0.4.0"
+version: "0.5.1"
 baseurl: ""
 url: "https://drifthound.io"
 
